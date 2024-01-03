@@ -4,6 +4,39 @@
 
 This Django project provides a CRUD API for managing purchase orders, suppliers, and line items. The API is built using Django, Django Rest Framework (DRF), and PostgreSQL.
 
+
+## Database Models
+
+### Supplier
+
+- **Fields:**
+  - `name`: String, max length 255 characters.
+  - `email`: Email field, unique.
+
+### LineItem
+
+- **Fields:**
+  - `item_name`: String, max length 255 characters.
+  - `quantity`: Positive integer, greater than 0.
+  - `price_without_tax`: Decimal field, max digits 10, decimal places 2.
+  - `tax_name`: String, max length 255 characters.
+  - `tax_amount`: Decimal field, max digits 10, decimal places 2.
+  - `line_total`: Calculated field (quantity * price_without_tax).
+
+### PurchaseOrder
+
+- **Fields:**
+  - `supplier`: Foreign key to Supplier.
+  - `order_time`: Date and time, auto-generated.
+  - `order_number`: Positive integer, auto-generated.
+  - `total_quantity`: Calculated field (sum of quantities of line items).
+  - `total_amount`: Calculated field (sum of line_total of line items).
+  - `total_tax`: Calculated field (sum of tax_amount of line items).
+
+
+
+
+
 ## Setup Instructions
 
 ### Prerequisites
