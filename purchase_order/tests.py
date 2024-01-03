@@ -191,7 +191,7 @@ class PurchaseOrderAPITestCase(TestCase):
                 },
                 {
                     "item_name": "New Product",
-                    "quantity": 2,
+                    "quantity": 3,
                     "price_without_tax": "15.00",
                     "tax_name": "GST 5%",
                     "tax_amount": "0.75"

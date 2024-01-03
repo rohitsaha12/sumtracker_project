@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,17 +78,24 @@ WSGI_APPLICATION = 'purchase_order_project.wsgi.application'
 
 # This hold information about the neon.tech postgress instance 
 DATABASES = {
-  'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'neondb',
-    'USER': 'rohitsahait',
-    'PASSWORD': 'Y3jfyWTto8Ou',
-    'HOST': 'ep-green-sky-03459299.ap-southeast-1.aws.neon.tech',
-    'PORT': '5432',
-    'OPTIONS': {'sslmode': 'require'},
-  }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'neondb',
+        'USER': 'rohitsahait',
+        'PASSWORD': 'Y3jfyWTto8Ou',
+        'HOST': 'ep-green-sky-03459299.ap-southeast-1.aws.neon.tech',
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'},
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+  },
 }
 
+# Use the test database when running tests
+if 'test' in sys.argv:
+    DATABASES['default'] = DATABASES['test']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
