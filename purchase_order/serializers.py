@@ -98,6 +98,7 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
         LineItem.objects.filter(id__in=existing_line_item_ids).exclude(id__in=[item['id'] for item in line_items_data]).delete()
 
         instance.save()
+        instance.supplier.save()
         return instance
 
     def delete(self, instance) -> None:
