@@ -177,4 +177,4 @@ This will create a file named `schema.yml` containing the OpenAPI spec.
 
 ### Testing API Endpoints
 
-    Import the PurchaseOrderProject.postman_collection.json in Postman
+Import the PurchaseOrderProject.postman_collection.json in Postman
