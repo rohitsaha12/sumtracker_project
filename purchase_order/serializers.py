@@ -56,7 +56,7 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Line Items must not be empty")
             
 
-    def create(self, validated_data):
+    def create(self, validated_data) -> PurchaseOrder:
         """
             This method creates the Purchase order along with its line_itens
         """
@@ -70,7 +70,7 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
 
         return purchase_order
 
-    def update(self, instance, validated_data):
+    def update(self, instance, validated_data) -> PurchaseOrder:
         """
             This method updates the specific PurchaseOrder
         """
@@ -100,14 +100,16 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-    def delete(self, instance):
+    def delete(self, instance) -> None:
         """
             This method deletes the PurchaseOrder and the associated line_items
         """
         LineItem.objects.filter(purchase_order=instance).delete()
         instance.delete()
 
-    def destroy(self, validated_data):
+        return
+
+    def destroy(self, validated_data) -> None:
         """
             This method is a wrapper around the delete method and validates if the deletion is possible
         """
@@ -120,5 +122,5 @@ class PurchaseOrderSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError("Purchase Order with given ID does not exist")
         else:
             raise serializers.ValidationError("ID is required for deleting a Purchase Order")
-
-        return validated_data
+        
+        return

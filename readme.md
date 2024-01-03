@@ -10,25 +10,25 @@ This Django project provides a CRUD API for managing purchase orders, suppliers,
 ### Supplier
 
 - **Fields:**
-  - `name`: String, max length 255 characters.
-  - `email`: Email field, unique.
+  - `name`: String
+  - `email`: Email field
 
 ### LineItem
 
 - **Fields:**
-  - `item_name`: String, max length 255 characters.
-  - `quantity`: Positive integer, greater than 0.
-  - `price_without_tax`: Decimal field, max digits 10, decimal places 2.
-  - `tax_name`: String, max length 255 characters.
-  - `tax_amount`: Decimal field, max digits 10, decimal places 2.
+  - `item_name`: String
+  - `quantity`: Positive integer
+  - `price_without_tax`: Decimal field
+  - `tax_name`: String
+  - `tax_amount`: Decimal field
   - `line_total`: Calculated field (quantity * price_without_tax).
 
 ### PurchaseOrder
 
 - **Fields:**
   - `supplier`: Foreign key to Supplier.
-  - `order_time`: Date and time, auto-generated.
-  - `order_number`: Positive integer, auto-generated.
+  - `order_time`: Date and time
+  - `order_number`: Positive integer
   - `total_quantity`: Calculated field (sum of quantities of line items).
   - `total_amount`: Calculated field (sum of line_total of line items).
   - `total_tax`: Calculated field (sum of tax_amount of line items).
@@ -173,3 +173,8 @@ This will create a file named `schema.yml` containing the OpenAPI spec.
 
 -   List and Create: `GET` and `POST` requests to `/api/purchase/orders/`
 -   Retrieve, Update, and Delete: `GET`, `PUT`, and `DELETE` requests to `/api/purchase/orders/<int:id>/`
+
+
+### Testing API Endpoints
+
+    Import the PurchaseOrderProject.postman_collection.json in Postman

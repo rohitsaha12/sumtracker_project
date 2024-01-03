@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "5e551da2-9beb-4eac-99f7-c09b731713e1",
+		"name": "Purchase Order Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30603868"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"supplier\": {\n    \"id\": null,\n    \"name\": \"my supplier\",\n    \"email\": \"email@email.com\"\n  },\n  \"line_items\": [\n    {\n      \"item_name\": \"test prod\",\n      \"quantity\": 1,\n      \"price_without_tax\": \"10.00\",\n      \"tax_name\": \"GST 5%\",\n      \"tax_amount\": \"0.50\"\n    },\n    {\n      \"item_name\": \"test prod 2\",\n      \"quantity\": 2,\n      \"price_without_tax\": \"20.00\",\n      \"tax_name\": \"GST 5%\",\n      \"tax_amount\": \"0.50\"\n    }\n  ]\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase/orders/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase",
+						"orders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List All",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Detail View",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4,\n    \"supplier\": {\n        \"id\": 7,\n        \"name\": \"my supplier 2\",\n        \"email\": \"email22@emasacil.com\"\n    },\n    \"line_items\": [\n        {\n            \"id\": 11,\n            \"item_name\": \"test prod\",\n            \"quantity\": 7,\n            \"price_without_tax\": \"15.00\",\n            \"tax_name\": \"GST 5%\",\n            \"tax_amount\": \"0.50\",\n            \"line_total\": \"45.00\",\n            \"purchase_order\": 4\n        },\n        {\n            \"id\": 12,\n            \"item_name\": \"test prod 2\",\n            \"quantity\": 2,\n            \"price_without_tax\": \"20.00\",\n            \"tax_name\": \"GST 5%\",\n            \"tax_amount\": \"0.50\",\n            \"line_total\": \"20.00\",\n            \"purchase_order\": 4\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/purchase/orders/4/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"purchase",
+						"orders",
+						"4",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
