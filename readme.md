@@ -77,6 +77,7 @@ This Django project provides a CRUD API for managing purchase orders, suppliers,
 Apply the initial database migrations:
 
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 ```
 
