@@ -55,22 +55,40 @@ This Django project provides a CRUD API for managing purchase orders, suppliers,
 ### Database Configuration
 
 1. **Create a PostgreSQL database for the project.**
-		You can create a free tier postgresql instance from https://neon.tech/  or a local postgresql installation will also work 
+		
+    You can create a free tier postgresql instance from https://neon.tech/ 
+    OR 
+    use a local postgresql installation
 
 2. **Update the database settings in `purchase_order_project/settings.py`:**
 
-    ```python
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'your_database_name',
-            'USER': 'your_database_user',
-            'PASSWORD': 'your_database_password',
-            'HOST': 'localhost',
-            'PORT': '5432',
+    -   For local PostgreSQL installation
+        ```python
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'your_database_name',
+                'USER': 'your_database_user',
+                'PASSWORD': 'your_database_password',
+                'HOST': 'localhost',
+                'PORT': '5432',
+            }
         }
-    }
-    ```
+        ```
+    -   For neon.tech PostgreSQL instance
+        ```python
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'NAME': 'your_database_name',
+                'USER': 'your_database_user',
+                'PASSWORD': 'your_database_password',
+                'HOST': '******.aws.neon.tech',
+                'PORT': '5432',
+                'OPTIONS': {'sslmode': 'require'},
+            }
+        }
+        ```
 
 ### Migrations
 
