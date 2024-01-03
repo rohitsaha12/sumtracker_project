@@ -131,6 +131,7 @@ Apply the initial database migrations:
 python manage.py makemigrations
 python manage.py migrate
 ```
+_**By default a migrated neon.tech postgress instance is used, you do not need to apply the above migrations if you are using that._
 
 ### Running the Development Server
 
