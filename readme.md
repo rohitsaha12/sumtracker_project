@@ -33,7 +33,12 @@ This Django project provides a CRUD API for managing purchase orders, suppliers,
   - `total_amount`: Calculated field (sum of line_total of line items).
   - `total_tax`: Calculated field (sum of tax_amount of line items).
 
+## API Endpoints
 
+### Purchase Orders
+
+-   List and Create: `GET` and `POST` requests to `/api/purchase/orders/`
+-   Retrieve, Update, and Delete: `GET`, `PUT`, and `DELETE` requests to `/api/purchase/orders/<int:id>/`
 
 
 
@@ -167,14 +172,6 @@ python manage.py spectacular --file schema.yml
 ```
 
 This will create a file named `schema.yml` containing the OpenAPI spec.
-
-## API Endpoints
-
-### Purchase Orders
-
--   List and Create: `GET` and `POST` requests to `/api/purchase/orders/`
--   Retrieve, Update, and Delete: `GET`, `PUT`, and `DELETE` requests to `/api/purchase/orders/<int:id>/`
-
 
 ### Testing API Endpoints
 
